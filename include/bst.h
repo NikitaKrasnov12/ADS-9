@@ -5,12 +5,13 @@ template<typename T>
 
 class BST {
   private:
+  
    struct Node {
         Node* left_Tree;
         Node* right_Tree;
         int count;
         T value;
-    };
+   };
     Node* root;
     Node* add_Node(Node* root, T data){
       if (root->left != nullptr || root->right != nullptr) {
@@ -28,10 +29,10 @@ class BST {
         }
         return root;
     }
-    int search_Node(Node* root, T value){
+    int search_Node(Node* root, T value) {
       if (root->value == value) {
         return root->count;
-      } else if (value < root->value && root->left != nullptr){
+      } else if (value < root->value && root->left != nullptr) {
         return search(root->left, value);
       } else if (value > root->value && root->right != nullptr) {
         return search(root->right, value);
@@ -58,6 +59,6 @@ class BST {
     int depth() {
         return depth_Tree(root) - 1;
     }
-};
+}
   
 #endif  // INCLUDE_BST_H_
