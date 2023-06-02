@@ -28,6 +28,7 @@ class BST {
             root->right_Tree = add_Node(root->right_Tree, value);
           } else {
             ++root->count;
+          }
         }
         return root;
     }
