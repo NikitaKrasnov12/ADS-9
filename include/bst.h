@@ -60,5 +60,5 @@ class BST {
     int depth() {
         return depth_Tree(root) - 1;
     }
-}
+};
 #endif  // INCLUDE_BST_H_
