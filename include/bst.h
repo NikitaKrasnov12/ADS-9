@@ -16,11 +16,11 @@ class BST {
     Node* add_Node(Node* root, T value) {
       if (root->left_Tree != nullptr || root->right_Tree != nullptr) {
         if (value < root->value && root->left_Tree != nullptr) {
-           return search(root->left_Tree, value)
-        }
-        if (val > root->value && root->right_Tree != nullptr) {
+           return search_Node(root->left_Tree, value)
+        };
+        if (value > root->value && root->right_Tree != nullptr) {
           return search_Node(root->right_Tree, value)
-        }
+        };
       } else {
           if (root->value > value) {
             root->left_Tree = add_Node(root->left_Tree, value);
