@@ -14,17 +14,17 @@ class BST {
     };
     Node* root;
     Node* add_Node(Node* root, T value) {
-     if(!root) { 
+     if (!root) {
       root = new Node;
       root->value = value;
       root->count = 1;
       root->right_Tree = nullptr;
-      root->left_Tree = nullptr; 
+      root->left_Tree = nullptr;
      } else {
-      if(root->left || root->right) {
-       if(root->value > value) {
+      if (root->left_Tree || root->right_Tree) {
+       if (root->value > value) {
         root->left_Tree = add_Node(root->left_Tree, value);
-       } else if(root->value < value) {
+       } else if (root->value < value) {
         root->right_Tree = add_Node(root->right_Tree, value);
        } else {
         ++root->count;
