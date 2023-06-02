@@ -13,7 +13,7 @@ class BST {
      T value;
     };
     Node* root;
-    Node* add_Node(Node* root, T data) {
+    Node* add_Node(Node* root, T value) {
       if (root->left_Tree != nullptr || root->right_Tree != nullptr) {
         if (value < root->value && root->left_Tree != nullptr) {
            return search(root->left_Tree, value)
@@ -39,7 +39,7 @@ class BST {
       } else if (value > root->value && root->right_Tree != nullptr) {
         return search_Node(root->right_Tree, value);
       }
-      return 0
+      return 0;
     }
     int depth_Tree(Node* root) {
         if (root == nullptr) {
@@ -54,7 +54,7 @@ class BST {
 public:
     BST():root(nullptr) {}
     void add(T value) {
-        root = add_Node(root, val);
+        root = add_Node(root, value);
     }
     int search(T value) {
         return  search_Node(root, value);
