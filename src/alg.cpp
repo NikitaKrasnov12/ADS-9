@@ -9,7 +9,6 @@ BST<std::string> makeTree(const char* filename) {
     BST<std::string> bst;
     std::ifstream file(filename);
     for (char& c : file) {
-        // Convert uppercase letters to lowercase
         if (c >= 65 && c <= 90) {
             c += 32;
         }
