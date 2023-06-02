@@ -3,9 +3,8 @@
 #define INCLUDE_BST_H_
 template<typename T>
 class BST {
-  
-  private:
-   struct Node {
+ public:
+    struct Node { 
      Node* left_Tree;
      Node* right_Tree;
      int count;
