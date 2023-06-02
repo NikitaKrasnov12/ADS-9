@@ -15,21 +15,17 @@ class BST {
     Node* root;
     Node* add_Node(Node* root, T value) {
      if (!root) {
-      root = new Node;
-      root->value = value;
-      root->count = 1;
-      root->right = nullptr;
-      root->left = nullptr;
-     } else {
-      if (root->left || root->right) {
-       if (root->value > value) {
-        root->left = add_Node(root->left, value);
-       } else if (root->value < value) {
+        root = new Node;
+        root->value = value;
+        root->count = 1;
+        root->right = nullptr;
+        root->left = nullptr;
+      } else if (root->value < value) {
         root->right = add_Node(root->right, value);
-       } else {
+     } else if (root->value > value) {
+        root->left = add_Node(root->left, value);
+     } else {
         ++root->count;
-       }
-      }
      }
      return root;
     }
@@ -51,9 +47,9 @@ class BST {
     int search_Node(Node* root, T value) {
       if (root->value == value) {
         return root->count;
-      } else if (value < root->value && root->left != nullptr) {
+      } else if (root->value > value) {
         return search_Node(root->left, value);
-      } else if (value > root->value && root->right != nullptr) {
+      } else if (root->value < value) {
         return search_Node(root->right, value);
       }
       return 0;
