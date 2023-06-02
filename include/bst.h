@@ -33,6 +33,21 @@ class BST {
      }
      return root;
     }
+    int depth_Tree(Node* root) {
+        if (root == nullptr) {
+         return 0;
+        }
+        int lef = heightTree(root->left_Tree);
+        int rig = heightTree(root->right_Tree);
+        if(lef == 0 && rig == 0) {
+         return 0;
+        }
+        if (lef > rig) {
+         return lef + 1;
+        } else {
+         return rig + 1;
+        }
+    }
     int search_Node(Node* root, T value) {
       if (root->value == value) {
         return root->count;
@@ -43,12 +58,6 @@ class BST {
       }
       return 0;
     }
-    int depth_Tree(Node* root) {
-        if (root == nullptr) {
-         return 0;
-        }
-        return 1 + std::max(depth_Tree(root->left_Tree), depth_Tree(root->right_Tree));
-    }
 
  public:
     BST():root(nullptr) {}
@@ -58,7 +67,7 @@ class BST {
     int search(T value) {
         return  search_Node(root, value);
     }
-    int depthA() {
+    int depth() {
         return depth_Tree(root) - 1;
     }
 };
