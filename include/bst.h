@@ -34,7 +34,7 @@ class BST {
      return root;
     }
     int depth_Tree(Node* root) {
-        if (root == nullptr) {
+        if (!root) {
          return 0;
         }
         int lef = depth_Tree(root->left);
