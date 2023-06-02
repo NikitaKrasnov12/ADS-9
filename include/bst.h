@@ -3,6 +3,7 @@
 #define INCLUDE_BST_H_
 #include <algorithm>
 template<typename T>
+
 class BST {
  private:
     struct Node {
@@ -13,18 +14,18 @@ class BST {
     };
     Node* root;
     Node* add_Node(Node* root, T data) {
-      if (root->left != nullptr || root->right != nullptr) {
-        if (val < root->value && root->left != nullptr) {
-           return search(root->left, value)
+      if (root->left_Tree != nullptr || root->right_Tree != nullptr) {
+        if (value < root->value && root->left_Tree != nullptr) {
+           return search(root->left_Tree, value)
         }
-        if (val > root->value && root->right != nullptr) {
-          return search(root->right, value)
+        if (val > root->value && root->right_Tree != nullptr) {
+          return search_Node(root->right_Tree, value)
         }
       } else {
           if (root->value > value) {
-            root->left = add_Node(root->left, value);
-          } else if (root->val < value) {
-            root->right = add_Node(root->right, value);
+            root->left_Tree = add_Node(root->left_Tree, value);
+          } else if (root->value < value) {
+            root->right_Tree = add_Node(root->right_Tree, value);
           } else {
             ++root->count;
         }
@@ -33,10 +34,10 @@ class BST {
     int search_Node(Node* root, T value) {
       if (root->value == value) {
         return root->count;
-      } else if (value < root->value && root->left != nullptr) {
-        return search(root->left, value);
-      } else if (value > root->value && root->right != nullptr) {
-        return search(root->right, value);
+      } else if (value < root->value && root->left_Tree != nullptr) {
+        return search_Node(root->left_Tree, value);
+      } else if (value > root->value && root->right_Tree != nullptr) {
+        return search_Node(root->right_Tree, value);
       }
       return 0
     }
@@ -44,8 +45,8 @@ class BST {
         if (root == nullptr) {
             return 0;
         } else {
-            int l = depthTree(root->left);
-            int r = depthTree(root->right);
+            int l = depth_Tree(root->left_Tree);
+            int r = depth_Tree(root->right_Tree);
             return 1 + (l >= r ? l : r);
         }
     }
