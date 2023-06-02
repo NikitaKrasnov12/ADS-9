@@ -35,9 +35,6 @@ class BST {
         }
         int lef = depth_Tree(root->left);
         int rig = depth_Tree(root->right);
-        if (lef == 0 && rig == 0) {
-         return 0;
-        }
         if (lef > rig) {
          return lef + 1;
         } else {
