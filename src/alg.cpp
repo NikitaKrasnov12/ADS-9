@@ -8,15 +8,24 @@
 BST<std::string> makeTree(const char* filename) {
     BST<std::string> bst;
     std::ifstream file(filename);
-    for (char& c : file) {
+    std::string slovo;
+    while (!file.eof()) {
+        char c = file.get();
         if (c >= 65 && c <= 90) {
             c += 32;
+            slovo = slovo + c;
+            continue;
         }
         if (c >= 97 && c <= 122) {
-            bst.add(std::string(1, c));
+            slovo = slovo + c;
+        } else {
+            if (!slovo.empty()) {
+                bst.add(slovo);
+            }
+            slovo.clear();
         }
     }
-    bst.add(str);
+    bst.add(slovo);
     file.close();
     return bst;
 }
