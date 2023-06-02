@@ -16,6 +16,7 @@ BST<std::string> makeTree(const char* filename) {
             bst.add(std::string(1, c));
         }
     }
+    bst.add(str);
     file.close();
     return bst;
 }
