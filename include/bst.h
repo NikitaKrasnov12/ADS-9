@@ -45,12 +45,15 @@ class BST {
     }
     int depth_Tree(Node* root) {
         if (root == nullptr) {
-            return 0;
-        } else {
-            int l = depth_Tree(root->left_Tree);
-            int r = depth_Tree(root->right_Tree);
-            return 1 + (l >= r ? l : r);
+         return 0;
         }
+     int lef = heightTree(root->left);
+     int rig = heightTree(root->right);
+     if (lef > rig) {
+      return lef + 1;
+     } else {
+      return rig + 1;
+     }
     }
 
  public:
