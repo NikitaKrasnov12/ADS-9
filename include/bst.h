@@ -51,7 +51,6 @@ class BST {
             return 1 + (l >= r ? l : r);
         }
     }
-
 public:
     BST():root(nullptr) {}
     void add(T value) {
