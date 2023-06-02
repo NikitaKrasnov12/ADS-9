@@ -37,9 +37,9 @@ class BST {
         if (root == nullptr) {
          return 0;
         }
-        int lef = heightTree(root->left_Tree);
-        int rig = heightTree(root->right_Tree);
-        if(lef == 0 && rig == 0) {
+        int lef = depth_Tree(root->left_Tree);
+        int rig = depth_Tree(root->right_Tree);
+        if (lef == 0 && rig == 0) {
          return 0;
         }
         if (lef > rig) {
