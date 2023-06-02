@@ -7,8 +7,8 @@ template<typename T>
 class BST {
  private:
     struct Node {
-     Node* left_Tree;
-     Node* right_Tree;
+     Node* left;
+     Node* right;
      int count;
      T value;
     };
@@ -18,14 +18,14 @@ class BST {
       root = new Node;
       root->value = value;
       root->count = 1;
-      root->right_Tree = nullptr;
-      root->left_Tree = nullptr;
+      root->right = nullptr;
+      root->left = nullptr;
      } else {
-      if (root->left_Tree || root->right_Tree) {
+      if (root->left || root->right) {
        if (root->value > value) {
-        root->left_Tree = add_Node(root->left_Tree, value);
+        root->left = add_Node(root->left, value);
        } else if (root->value < value) {
-        root->right_Tree = add_Node(root->right_Tree, value);
+        root->right = add_Node(root->right, value);
        } else {
         ++root->count;
        }
@@ -37,8 +37,8 @@ class BST {
         if (root == nullptr) {
          return 0;
         }
-        int lef = depth_Tree(root->left_Tree);
-        int rig = depth_Tree(root->right_Tree);
+        int lef = depth_Tree(root->left);
+        int rig = depth_Tree(root->right);
         if (lef == 0 && rig == 0) {
          return 0;
         }
@@ -51,10 +51,10 @@ class BST {
     int search_Node(Node* root, T value) {
       if (root->value == value) {
         return root->count;
-      } else if (value < root->value && root->left_Tree != nullptr) {
-        return search_Node(root->left_Tree, value);
-      } else if (value > root->value && root->right_Tree != nullptr) {
-        return search_Node(root->right_Tree, value);
+      } else if (value < root->value && root->left != nullptr) {
+        return search_Node(root->left, value);
+      } else if (value > root->value && root->right != nullptr) {
+        return search_Node(root->right, value);
       }
       return 0;
     }
