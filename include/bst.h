@@ -2,30 +2,31 @@
 #ifndef INCLUDE_BST_H_
 #define INCLUDE_BST_H_
 template<typename T>
-
 class BST {
-  private:
   
+  private:
    struct Node {
-        Node* left_Tree;
-        Node* right_Tree;
-        int count;
-        T value;
+     Node* left_Tree;
+     Node* right_Tree;
+     int count;
+     T value;
    };
-    Node* root;
-    Node* add_Node(Node* root, T data){
+   Node* root;
+   Node* add_Node(Node* root, T data) {
       if (root->left != nullptr || root->right != nullptr) {
-        if (val < root->value && root->left != nullptr)
+        if (val < root->value && root->left != nullptr) {
            return search(root->left, value)
-        if (val > root->value && root->right != nullptr)
-           return search(root->right, value)
-        } else {
-           if (root->value > value) {
-              root->left = add_Node(root->left, value);
-           } else if (root->val < value) {
-              root->right = add_Node(root->right, value);
-           } else {
-              ++root->count;
+        } 
+        if (val > root->value && root->right != nullptr) {
+          return search(root->right, value)
+        }
+      } else {
+          if (root->value > value) {
+            root->left = add_Node(root->left, value);
+          } else if (root->val < value) {
+            root->right = add_Node(root->right, value);
+          } else {
+            ++root->count;
         }
         return root;
     }
@@ -59,6 +60,5 @@ class BST {
     int depth() {
         return depth_Tree(root) - 1;
     }
-}
-  
+}  
 #endif  // INCLUDE_BST_H_
